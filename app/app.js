@@ -18,3 +18,23 @@ const words = [
   "What is Golang? and why do you wanna learn it?",
   "What is CSS",
 ];
+
+const game = {
+  start: 0,
+  end: 0,
+  user: "",
+  arrText: "",
+};
+
+btn.addEventListener("click", () => {
+  if (btn.textContent === "Start") {
+    play();
+    typeArea.value = "";
+    typeArea.disabled = false;
+  } else if (btn.textContent === "Done") {
+    typeArea.disabled = true;
+    main.style.borderColor = "white";
+    end();
+  }
+});
+
