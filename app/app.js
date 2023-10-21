@@ -38,3 +38,24 @@ btn.addEventListener("click", () => {
   }
 });
 
+function play() {
+  let randText = Math.floor(Math.random() * words.length);
+  main.textContent = words[randText];
+  game.arrText = words[randText];
+  main.style.borderColor = "#c8c8c8";
+  btn.textContent = "Done";
+  const duration = new Date();
+  game.start = duration.getTime(); // unix timestamp
+}
+
+function end() {
+  const duration = new Date();
+  game.end = duration.getTime();
+  const totalTime = (game.end - game.start) / 1000;
+  game.user = typeArea.value;
+  const correct = results();
+  main.style.borderColor = "white";
+  main.innerHTML = `Time: ${totalTime} Score: ${correct.score} out of ${correct.total}`;
+  btn.textContent = "Start";
+}
+
